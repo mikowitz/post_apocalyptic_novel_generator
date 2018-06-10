@@ -9,5 +9,7 @@ defmodule PostApocalypticNovelGeneratorTest do
 
 
     assert PostApocalypticNovelGenerator.generate("Athol") == "After the West Coast is destroyed by an airborne toxic event, an immune mailman must survive by infiltrating an army of clones."
+
+    assert PostApocalypticNovelGenerator.generate("Étien") == "After North America is destroyed by an airborne toxic event, a cybernetic scientist must survive by discovering a death cult."
   end
 end

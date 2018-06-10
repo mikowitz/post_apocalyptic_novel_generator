@@ -20,7 +20,8 @@ defmodule PostApocalypticNovelGenerator do
 
   """
   @spec generate(String.t) :: String.t
-  def generate(name) do
+  def generate(name) when is_bitstring(name) do
+    name = name |> String.normalize(:nfd) |> String.replace(~r/[^A-Za-z\s]/u, "")
     [{who, how}, {adjective, hero}, {verb, enemy}] =
       [&Disaster.generate_pair/1, &Hero.generate_pair/1, &Solution.generate_pair/1]
       |> Enum.map(fn func -> func.(name) end)
